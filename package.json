@@ -1,0 +1,13 @@
+{
+  "name": "compony-cli",
+  "version": "0.0.1",
+  "main": "./bin/index.js",
+  "repository": "https://github.com/SamiJuv/compony-cli.git",
+  "author": "Sami Juvonen",
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "compony": "./bin/index.js"
+  },
+  "preferGlobal": true
+}
