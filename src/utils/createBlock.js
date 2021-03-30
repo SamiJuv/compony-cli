@@ -1,6 +1,12 @@
 const inquirer = require("inquirer");
 
-const { findDrupalRoot, createFolder, copyTemplate } = require("../helpers");
+const { 
+  findDrupalRoot,
+  createFolder,
+  copyTemplate,
+  createStylesheetFile,
+  createLibrariesFile
+} = require("../helpers");
 const { BLOCK_TEMPLATE_PATH } = require("../constants/templatePaths");
 
 const createBlock = () => {
@@ -17,11 +23,17 @@ const createBlock = () => {
       const blockTemplate = drupalRoot + BLOCK_TEMPLATE_PATH;
 
       // Create component folder
-      const folderName = "block--" + answer.machineName;
-      createFolder(folderName);
+      const componentName = "block--" + answer.machineName;
+      createFolder(componentName);
 
       // Copy template file
-      copyTemplate(blockTemplate, folderName);
+      copyTemplate(blockTemplate, componentName);
+
+      // Create stylesheet file
+      createStylesheetFile(componentName);
+      
+      // Create libraries file
+      createLibrariesFile(componentName);
     });
 }
 

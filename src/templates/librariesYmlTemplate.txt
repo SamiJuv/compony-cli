@@ -1,0 +1,5 @@
+{{componentName}}:
+  version: VERSION
+  css:
+    component:
+      dist/{{componentName}}.css: {}
