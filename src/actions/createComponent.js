@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
-const { COMPONENT_TYPES } = require("../constants");
+
+const { COMPONENT_TYPES } = require("../constants/componentTypes");
+const createBlock = require("../utils/createBlock");
 
 const createComponent = () => {
   inquirer
@@ -18,7 +20,11 @@ const createComponent = () => {
       }
     ])
     .then((answer) => {
-      console.log(answer);
+      switch (answer.componentType) {
+        case "block":
+          createBlock();
+          break;
+      }
     });
 }
 
